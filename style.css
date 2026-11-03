@@ -1,0 +1,399 @@
+/* ==============================
+   1. BASE DU SITE
+============================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #111719;
+  color: #f2f5f6;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+/* ==============================
+   2. BARRE DE NAVIGATION
+============================== */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 15px 22px;
+  background: #1b2529;
+  border-bottom: 1px solid #344349;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+}
+
+.navbar h2 {
+  margin: 0;
+  font-size: 21px;
+  letter-spacing: 0.5px;
+}
+
+.burger {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.burger:hover {
+  color: #19c4cf;
+}
+
+/* ==============================
+   3. MENU LATÉRAL
+============================== */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 1002;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  max-width: 85vw;
+  height: 100%;
+  padding: 25px 20px;
+  background: #1b2529;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1003;
+  overflow-y: auto;
+}
+
+.side-menu.active {
+  transform: translateX(0);
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.menu-header h2 {
+  margin: 0;
+}
+
+.close-btn {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.side-menu a {
+  display: block;
+  color: #e0e7e9;
+  text-decoration: none;
+  padding: 14px 12px;
+  margin-bottom: 6px;
+  border-radius: 5px;
+}
+
+.side-menu a:hover,
+.side-menu a[aria-current="page"] {
+  background: #2b3c42;
+  color: #19c4cf;
+}
+
+/* ==============================
+   4. CONTENU PRINCIPAL
+============================== */
+
+main {
+  width: min(100% - 36px, 1000px);
+  margin: 45px auto 70px;
+}
+
+.intro {
+  margin-bottom: 35px;
+}
+
+.intro h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.intro p {
+  color: #bdc9cd;
+  line-height: 1.8;
+}
+
+/* ==============================
+   5. VIDEOS
+============================== */
+
+.video-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px #00000055;
+  margin-bottom: 20px;
+}
+
+.video-container iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-description {
+  color: #c4cdd0;
+  line-height: 1.8;
+  margin: 20px 0 40px;
+}
+
+/* ==============================
+   6. IMAGES SANS ROGNAGE
+============================== */
+
+/* Pour toutes les images classiques du site */
+
+.image-site {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  object-fit: contain;
+  margin: 25px auto;
+  border-radius: 8px;
+}
+
+/* Images placées dans le contenu */
+
+main img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==============================
+   7. PIED DE PAGE
+============================== */
+
+.site-footer {
+  width: 100%;
+  margin-top: 60px;
+  padding: 45px 5% 20px;
+  background: #40545b;
+  color: #edf2f3;
+  border-top: 1px solid #5d7076;
+}
+
+.footer-main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 45px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr 1.4fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.footer-brand h2 {
+  color: #fff;
+  font-size: 23px;
+  letter-spacing: 2px;
+  line-height: 1.3;
+  margin: 0 0 12px;
+}
+
+.footer-brand p {
+  color: #c4d0d3;
+  font-size: 14px;
+}
+
+.footer-column h3 {
+  color: #fff;
+  font-size: 14px;
+  margin: 0 0 18px;
+}
+
+.footer-column a {
+  display: block;
+  color: #cbd5d8;
+  font-size: 14px;
+  text-decoration: none;
+  margin-bottom: 11px;
+  overflow-wrap: anywhere;
+}
+
+.footer-column a:hover {
+  color: #19d0d9;
+}
+
+.footer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.footer-button {
+  display: block;
+  width: 100%;
+  padding: 14px 12px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.footer-button:hover {
+  filter: brightness(1.1);
+  color: #fff;
+}
+
+.turquoise {
+  background: #08aebc;
+}
+
+.orange {
+  background: #d99c10;
+}
+
+/* ==============================
+   8. RESEAUX SOCIAUX
+============================== */
+
+.footer-social {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-social span {
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.footer-social a {
+  color: #edf2f3;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  color: #19d0d9;
+}
+
+/* ==============================
+   9. BARRE LEGALE DU BAS
+============================== */
+
+.footer-legal {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid #718187;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-legal div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.footer-legal a {
+  color: #cbd5d8;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.footer-legal a:hover {
+  color: #fff;
+}
+
+.footer-legal p {
+  color: #cbd5d8;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* ==============================
+   10. ADAPTATION AUX TÉLÉPHONES
+============================== */
+
+@media (max-width: 900px) {
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    width: calc(100% - 28px);
+    margin-top: 30px;
+  }
+
+  .site-footer {
+    padding: 35px 22px 20px;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .footer-social {
+    gap: 16px;
+  }
+
+  .footer-legal {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-legal div {
+    gap: 12px 18px;
+  }
+}
